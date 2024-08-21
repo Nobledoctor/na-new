@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="submit"] {
+            background-color: #0078d4;
+            color: white;
+            padding: 10px;
+            border: none;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Login">
+        </form>
+        <div id="formContainer" style="display:none;">
+            <iframe width="640px" height="480px" src="https://forms.office.com/Pages/ResponsePage.aspx?id=DQSIkWdsW0yxEjajBLZtrQAAAAAAAAAAAAO__QoG87FUMkhHTVpKVDFaMU5WUlRLNVpJOVA2OFdTSS4u&embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh;" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen></iframe>
+        </div>
+    </div>
+
+    <script>
+        // Define valid usernames and passwords
+        var validUsernames = ['Premiumcbt1', 'Premiumcbt2', 'Premiumcbt'];
+        var validPasswords = ['Nursing', 'Midwifery'];
+
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Check if the username and password are valid
+            var isUsernameValid = validUsernames.includes(username);
+            var isPasswordValid = validPasswords.includes(password);
+
+            if (isUsernameValid && isPasswordValid) {
+                document.getElementById('formContainer').style.display = 'block';
+                document.getElementById('loginForm').style.display = 'none';
+            } else {
+                alert('Invalid username or password');
+            }
+        });
+    </script>
+</body>
+</html>
